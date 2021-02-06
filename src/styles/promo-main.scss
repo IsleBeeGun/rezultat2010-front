@@ -1,0 +1,380 @@
+// importing fonts
+@import './fonts.scss';
+
+// re-assign bulma variables before import!
+// theme colors
+$black: hsl(0, 0%, 4%); // default
+$black-bis: hsl(0, 0%, 7%); // default
+$black-ter: hsl(0, 0%, 14%); // default
+$grey-darker: hsl(0, 0%, 21%); // default
+$primary: #009ec1;
+$info: #35347e;
+$warning: #ffcc00;
+$success: hsl(141, 71%, 48%);
+$light: #f4f4f4;
+$footer-background-color: $primary;
+$footer-color: white;
+$input-hover-border-color: $info;
+$input-focus-border-color: $info;
+$input-focus-box-shadow-color: rgba($info, 0.3);
+
+// theme fonts
+$family-sans-serif: Lato, sans-serif;
+
+// theme other settings
+$size-1: 2.75rem;
+$size-3: 1.7rem;
+$size-4: 1.3rem;
+$size-5: 1.1rem;
+$input-focus-box-shadow-size: 0 0 0 0.14em;
+$radius: 10px;
+$radius-small: 10px;
+$body-line-height: 1.2;
+$gap: 64px;
+
+// non-bulma variables
+$transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+$transition-quick: 0.2s linear;
+$text-shadow-menu: 2px 2px 6px rgba($primary, 0.7),
+  -2px -2px 6px rgba($primary, 0.7);
+
+// re-assign bulma variables before import!
+// importing bulma
+@import '../../node_modules/bulma/sass/utilities/initial-variables.sass';
+@import '../../node_modules/bulma/bulma.sass';
+
+// adjusting font-size for rem
+
+html {
+  font-size: 18px;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.modal {
+  &-backdrop {
+    transition: visibility $transition-quick, opacity $transition-quick;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba($info, 0.7);
+    z-index: 50;
+  }
+  &-window {
+    transition: visibility $transition, opacity $transition;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    top: 30vh;
+    left: calc(50% - 15rem);
+    width: 30rem;
+    background: white;
+    box-shadow: 0 0 10px darken($info, 20%);
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    z-index: 100;
+    border-radius: $radius;
+    @media screen and (max-width: 559px) {
+      top: 5vh;
+      left: calc(50% - 8rem);
+      width: 16rem;
+    }
+  }
+  &-exit {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 2rem;
+    line-height: 1rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+}
+
+.field-fix {
+  @media screen and (min-width: 1408px) and (max-width: 1471px) {
+    line-height: 1.5;
+    height: 2.5rem;
+    font-size: 0.85rem;
+  }
+  @media screen and (max-width: 400px) {
+    line-height: 1.5;
+    height: 2.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+.desktop-menu-fix {
+  text-shadow: $text-shadow-menu;
+  margin-right: 5rem !important;
+  &-last {
+    text-shadow: $text-shadow-menu;
+  }
+  @media screen and (min-width: 1088px) and (max-width: 1279px) {
+    margin-right: 3rem !important;
+  }
+  @media screen and (min-width: 1472px) {
+    margin-right: 6rem !important;
+    font-size: $size-4;
+    &-last {
+      font-size: $size-4;
+    }
+  }
+}
+
+.euroins-link-fix {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform $transition-quick;
+  & p {
+    color: $grey-darker;
+    transition: color $transition-quick;
+  }
+  &:hover {
+    @media screen and (min-width: 1088px) {
+      transform: scale(1.3);
+    }
+    & p {
+      color: $primary;
+    }
+  }
+}
+
+.hero-bg-desktop {
+  background: url('../images/hero_background.png') no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  @media screen and (max-width: 1087px) {
+    background-position: 35% bottom;
+  }
+}
+
+.notice-icon {
+  height: 64px;
+}
+
+.pointer-icon {
+  width: 100%;
+  transform: translateY(-100%);
+}
+
+.logo-icon {
+  height: 49px;
+  &-lg {
+    height: 61px;
+  }
+  &-sm {
+    height: 33px;
+  }
+}
+
+// helpers
+
+.mobile-input {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+  &:focus {
+    background-color: $light;
+  }
+}
+
+.mobile-form-spacer {
+  height: 60px;
+  border-bottom: 7px solid $primary;
+}
+
+.desktop-form {
+  margin-left: 0.5rem !important;
+  margin-right: 3rem !important;
+  @media screen and (max-width: 1215px) {
+    & input,
+    span {
+      font-size: 0.75rem !important;
+    }
+  }
+  @media screen and (max-width: 1407px) {
+    & input,
+    span {
+      font-size: 0.9rem;
+    }
+    & input {
+      padding-left: 0.5rem;
+    }
+    margin-left: 0rem !important;
+    margin-right: 1rem !important;
+  }
+}
+
+.extra-padding {
+  padding-top: 132px;
+  padding-bottom: 132px;
+  @media screen and (max-width: 768px) {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.plus-mark {
+  position: relative;
+  margin-bottom: 0.5em !important;
+  &::after {
+    content: url(../images/plus.svg);
+    position: absolute;
+    left: -1.4em;
+    top: 0em;
+  }
+}
+
+.faq-fix {
+  & summary {
+    position: relative;
+    outline: none;
+    margin-left: 2rem;
+    cursor: pointer;
+    transition: color $transition-quick;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    &:hover {
+      color: $primary;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: -1.6em;
+      top: 0.15em;
+      width: 0;
+      height: 0;
+      border-top: 0.5em solid transparent;
+      border-bottom: 0.5em solid transparent;
+      border-left: 0.5em solid $warning;
+      transition: transform $transition-quick;
+      @media screen and (max-width: 768px) {
+        left: -1.2em;
+      }
+    }
+  }
+  // after details is opened
+  &[open] {
+    & summary::after {
+      transform: rotate(90deg);
+    }
+
+    & summary ~ * {
+      animation: sweep $transition;
+      margin-top: 1rem;
+      margin-left: 2rem;
+    }
+  }
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// remove number spinners
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+// forms
+
+.fieldValid {
+  background-color: lighten($success, 30%) !important;
+  border-color: $success;
+}
+
+.fieldInvalid {
+  background-color: lighten($warning, 30%) !important;
+  border-color: $warning;
+}
+
+// burger menu
+
+#burger {
+  z-index: 2;
+  cursor: pointer;
+  transition: transform $transition;
+}
+.burger {
+  &-active {
+    transform: rotate(90deg);
+  }
+}
+
+#burger-container {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  top: 0;
+  right: -1.5rem;
+  width: 100vw;
+  height: 60vh;
+  background-color: $info;
+  transform-origin: top right;
+  border-radius: $radius;
+  transition: transform $transition;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+.burger-container {
+  &-visible {
+    transform: scale(1);
+    & a {
+      transition: color $transition;
+    }
+  }
+  &-hidden {
+    transform: scale(0);
+    & a {
+      color: $info !important;
+      transition: color $transition;
+    }
+  }
+}
+
+@media screen and (max-width: 370px), print {
+  .button.is-fullwidth-sm {
+    display: flex;
+    width: 100%;
+  }
+}
+
+// test misc
+.bgred {
+  background: rgba(255, 0, 0, 0.5);
+}
+.bggreen {
+  background: rgba(0, 128, 0, 0.5);
+}
+.bgblue {
+  background: rgba(0, 0, 255, 0.5);
+}
+.bgyellow {
+  background: rgba(255, 255, 0, 0.5);
+}
