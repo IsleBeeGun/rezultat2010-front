@@ -57,6 +57,11 @@ $custom-max-laptop: 1599px;
 
 html {
   font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .modal {
@@ -64,12 +69,13 @@ html {
     transition: visibility $transition-quick, opacity $transition-quick;
     visibility: hidden;
     opacity: 0;
+    margin: 0;
     position: fixed;
     display: block;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 102vh;
+    width: 100vw;
+    height: 100vh;
     background: rgba($primary, 0.7);
     z-index: 50;
   }
@@ -127,14 +133,49 @@ html {
   }
 }
 
+.r-extra-margin-top-mobile {
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    margin-top: 8vw;
+  }
+}
+
 .r-fullwidth {
-  // min-width: 75vw;
   width: 73vw;
   min-width: 73vw;
   max-width: 73vw !important;
+  /* Mobile fullwidth */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    width: 75vw;
+    min-width: 75vw;
+    max-width: 75vw !important;
+  }
+  /* Tablet version col-1 */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    width: 90vw;
+    min-width: 90vw;
+    max-width: 90vw !important;
+  }
+
+  &_moar {
+    @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+      width: 90vw;
+      min-width: 90vw;
+      max-width: 90vw !important;
+    }
+  }
 }
 
 /////////////////////////////////////////
+
+.r-hero__pseudo {
+  height: 18.8vw;
+  width: 100%;
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    height: 55vw;
+    margin-bottom: 0.5vw;
+  }
+}
 
 .r-hero {
   @extend .hero;
@@ -143,10 +184,11 @@ html {
   background-position: left top;
   z-index: 10;
   height: 18.8vw;
-  width: 100%;
-  position: sticky;
+  width: 100vw;
+  position: fixed;
   top: 0;
   padding: 0;
+  z-index: 20;
   box-shadow: 0px 9px 16px -2px rgba($primary, 0.3); /// !!!
   & .hero-body {
     padding: 0;
@@ -159,7 +201,7 @@ html {
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
     height: 55vw;
     & .hero-body {
-      padding: 7.5vw; // !!!
+      padding: 2vw; // !!!
       & .container .columns {
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -169,6 +211,10 @@ html {
 }
 .r-hero__body {
   @extend .hero-body;
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    padding: 4.5vw !important;
+  }
 }
 .r-hero__container {
   @extend .container;
@@ -178,14 +224,16 @@ html {
   @extend .is-centered;
   @extend .is-multiline;
   @extend .is-mobile;
+  margin: 0 !important;
 }
 .r-hero__logo {
   height: 14.4vw;
   width: auto;
+  /* Mobile */
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
-    width: 100%;
-    height: auto;
+    height: 31vw;
   }
+  /* Tablet */
   @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
     height: 12vw;
   }
@@ -371,6 +419,7 @@ html {
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 2vw;
+    margin-left: auto;
     & > div {
       & > p {
         margin-top: 1vw;
@@ -415,23 +464,51 @@ html {
   text-transform: uppercase;
   font-size: $size-3;
   margin-bottom: 0px !important;
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    margin-top: 4.8vw;
+    font-size: 6vw;
+    width: 91vw;
+    margin-left: -8vw;
+    text-align: center;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    font-size: 2.4vw;
+  }
 }
 .r-section__line {
   background-color: $primary;
   margin-left: -1px;
   margin-top: 2px;
   height: 0.2vw;
-  width: 38.75vw; //53.25%;
+  width: 38.75vw;
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    width: 91vw;
+    margin: 0;
+    margin-left: -8vw;
+    margin-top: 2px;
+    height: 0.8vw;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    height: 0.4vw;
+    width: 45vw;
+  }
 }
 .r-section__columns {
   @extend .columns;
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    flex-wrap: wrap;
+  }
 }
 .r-section__text-block {
   @extend .column;
-  @extend .bgred;
-  min-width: 42vw; //57%;
+
+  min-width: 42vw;
   font-size: $size-3;
-  //padding-right: 2vw;
   & ul {
     & li {
       margin-top: 1vw;
@@ -442,10 +519,33 @@ html {
     line-height: $size-3 + 0.5vw;
     letter-spacing: 0.015vw;
   }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    font-size: 4.5vw;
+    padding-right: 0;
+    padding-left: 0;
+    & ul {
+      padding-top: 1vw;
+      & li {
+        margin-top: 3vw;
+      }
+    }
+    & p {
+      margin-top: 3.6vw;
+      line-height: 5.6vw;
+      letter-spacing: 0.15vw;
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    font-size: 2.2vw;
+    & p {
+      line-height: 2.2vw + 0.4vw;
+    }
+  }
 }
 .r-section__text-block_fullwidth {
   @extend .r-section__text-block;
-  //min-width: 75vw;
 }
 .r-section__text-block_alt-ul {
   @extend .r-section__text-block;
@@ -457,12 +557,43 @@ html {
       letter-spacing: 0.065vw;
     }
   }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    & ul {
+      & li {
+        margin-top: 3vw;
+        line-height: 5.1vw;
+        letter-spacing: normal;
+      }
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    & ul {
+      & li {
+        line-height: 2.2vw + 0.4vw;
+      }
+    }
+  }
 }
 .r-section__images-container {
   @extend .column;
-  @extend .bggreen;
+
   min-width: 33vw;
   padding: 0.6vw 0.35vw;
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    min-width: 91vw;
+    min-height: 61vw;
+    margin: 0;
+    margin-top: 2.7vw;
+    padding: 0;
+    margin-left: -4.8vw;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    padding: 0.8vw 0.35vw;
+  }
 }
 .r-section__images-container_single {
   @extend .r-section__images-container;
@@ -483,27 +614,56 @@ html {
     height: 16vw;
     background-size: cover;
   }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    & div {
+      height: 45vw;
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    & div {
+      height: 22.325vw;
+    }
+  }
 }
 .r-section__step {
   @extend .column;
   @extend .is-narrow;
   padding: 0;
   & img {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    height: 17.5vw;
+    height: 18vw;
     width: auto;
   }
-  &:nth-child(1) img {
-    margin-right: 1.4vw;
-    margin-left: 0;
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    & img {
+      height: 69vw;
+      width: auto;
+    }
+    &:nth-child(1) img {
+      margin-top: 5vw;
+      margin-right: 0;
+      margin-left: 12vw;
+    }
+    &:nth-child(2) img {
+      margin-top: 8vw;
+      margin-left: 9vw;
+      margin-right: 0;
+    }
+    &:nth-child(3) img {
+      margin-top: 6vw;
+      margin-left: 6vw;
+    }
   }
-  &:nth-child(2) img {
-    margin-left: 1.4vw;
-    margin-right: 0;
-  }
-  &:nth-child(3) img {
-    margin-left: 0vw;
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    & img {
+      height: 21vw;
+    }
   }
 }
 
@@ -521,47 +681,113 @@ html {
     height: 2vw;
     margin: 1vw;
     background-image: url(../images/loupe.svg);
-    background-size: contain;
+    background-size: 2vw 2vw;
+    background-repeat: no-repeat;
     cursor: pointer;
     z-index: 20;
     &:hover {
       box-shadow: none;
     }
   }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    height: 66.5vw;
+    & .r-slide__check {
+      margin: 4vw;
+      width: 8vw;
+      height: 8vw;
+      background-size: 8vw 8vw;
+    }
+  }
 }
 
-.swiper-button-prev {
-  left: -2vw;
+.swiper-container {
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    margin-top: 10vw;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    margin-top: 2vw;
+  }
+}
+
+.r-swiper-button {
   &::after {
     content: ' ';
-    background-image: url(../images/arrow-prev.svg);
     display: block;
     position: absolute;
-    top: 1vw;
+    top: 50%;
     background-size: 1.5vw 1.5vw;
     width: 1.5vw;
     height: 1.5vw;
+  }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    &::after {
+      background-size: 7vw 7vw;
+      width: 7vw;
+      height: 7vw;
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    &::after {
+      background-size: 3vw 3vw;
+      width: 3vw;
+      height: 3vw;
+    }
+  }
+}
+
+.swiper-button-prev {
+  @extend .r-swiper-button;
+  left: -2vw;
+  &::after {
+    background-image: url(../images/arrow-prev.svg);
+  }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    left: 0.5vw;
+    top: 47.5%;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    left: 0.5vw;
+    top: 45%;
   }
 }
 
 .swiper-button-next {
+  @extend .r-swiper-button;
   right: -2vw;
   &::after {
-    content: ' ';
     background-image: url(../images/arrow-next.svg);
-    display: block;
-    position: absolute;
-    top: 1vw;
-    background-size: 1.5vw 1.5vw;
-    width: 1.5vw;
-    height: 1.5vw;
   }
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    right: 0.5vw;
+    top: 47.5%;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    right: 0.5vw;
+    top: 45%;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $primary;
 }
 
 /////////////////////////////////////////
 
 .r-footer {
   @extend .footer;
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    margin-top: 12.5vw;
+  }
 }
 
 .r-footer__content {
@@ -573,6 +799,23 @@ html {
     font-family: Days;
     margin-top: 0.5vw !important;
   }
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    & p {
+      font-size: 5vw;
+      line-height: 6.5vw;
+      margin-top: 3vw !important;
+      padding: 0 12vw;
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    & p {
+      margin-top: 2vw !important;
+      font-size: 2.2vw;
+      line-height: 2.2vw + 0.4vw;
+    }
+  }
 }
 
 .r-footer__line {
@@ -580,6 +823,18 @@ html {
   background-color: $primary;
   height: 0.2vw;
   margin: 0 auto;
+  /* Mobile  */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    width: 91vw;
+    margin: 0;
+    margin-left: -2vw;
+    height: 0.8vw;
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    height: 0.4vw;
+    width: 100%;
+  }
 }
 
 // helpers
@@ -599,7 +854,6 @@ html {
   position: relative;
   &::before {
     content: ' ';
-    //background-image: url(../images/mark-1.svg);
     display: block;
     position: absolute;
     top: -0.5vw;
@@ -608,8 +862,29 @@ html {
     width: 2.5vw;
     height: 2.5vw;
   }
+  /* Mobile */
+  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    margin-left: 3vw;
+    &::before {
+      content: ' ';
+      top: -1vw;
+      left: -8vw;
+      background-size: 7vw 7vw;
+      width: 7vw;
+      height: 7vw;
+    }
+  }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    &::before {
+      top: -0.5vw;
+      left: -3.6vw;
+      background-size: 3vw 3vw;
+      width: 3vw;
+      height: 3vw;
+    }
+  }
 }
-
 .mark-li-1 {
   @extend .mark-li;
   &::before {
