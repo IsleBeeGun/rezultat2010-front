@@ -1,24 +1,24 @@
-const modalWindow = document.querySelector('.modal-window');
-const modalBackdrop = document.querySelector('.modal-backdrop');
-const modalExit = document.querySelector('.modal-exit');
+window.modalWindow = document.querySelector('.modal-window');
+window.modalBackdrop = document.querySelector('.modal-backdrop');
+window.modalExit = document.querySelector('.modal-exit');
 
-const closeModal = () => {
-  modalBackdrop.setAttribute('style', 'visibility:hidden; opacity: 0;');
-  modalWindow.setAttribute('style', 'visibility:hidden; opacity: 0;');
-  document.querySelector('html').style.overflow = 'visible';
+window.closeModal = () => {
+  window.modalBackdrop.setAttribute('style', 'visibility:hidden; opacity: 0;');
+  window.modalWindow.setAttribute('style', 'visibility:hidden; opacity: 0;');
+  document.querySelector('html').style.overflowY = 'visible';
 };
 
-modalExit.addEventListener('click', (event) => {
+window.modalExit.addEventListener('click', (event) => {
   closeModal();
 });
 
-modalBackdrop.addEventListener('click', (event) => {
+window.modalBackdrop.addEventListener('click', (event) => {
   closeModal();
 });
 
-globalThis.openModal = (msg) => {
+window.openModal = (msg) => {
   document.querySelector('.modal-message').innerHTML = msg;
-  document.querySelector('html').style.overflow = 'hidden';
+  document.querySelector('html').style.overflowY = 'hidden';
   document
     .querySelector('.modal-backdrop')
     .setAttribute('style', 'visibility:visible; opacity: 1;');

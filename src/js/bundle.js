@@ -2,7 +2,7 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.css';
 Swiper.use([Navigation, Pagination]);
-var swiper = new Swiper('.swiper-container', {
+window.swiper = new Swiper('.swiper-container', {
   // Optional parameters
   slidesPerView: 1,
   direction: 'horizontal',
