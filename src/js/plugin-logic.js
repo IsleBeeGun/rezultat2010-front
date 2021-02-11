@@ -55,8 +55,7 @@ wp.blocks.registerBlockType('rezultat2010/textblock', {
     return wp.element.createElement(
       'section',
       {
-        className: 'r-section r-extra-margin-top-mobile',
-        style: { paddingTop: '1.5vw' },
+        className: 'r-section r-extra-margin-top-mobile r-pad-top-150',
       },
       wp.element.createElement(
         'div',
@@ -246,7 +245,6 @@ wp.blocks.registerBlockType('rezultat2010/textblock-with-image', {
                 'li',
                 {
                   className: 'mark-li-3',
-                  style: { letterSpacing: '-0.03vw' },
                 },
                 props.attributes.listItem4
               ),
@@ -254,7 +252,6 @@ wp.blocks.registerBlockType('rezultat2010/textblock-with-image', {
                 'li',
                 {
                   className: 'mark-li-4',
-                  style: { letterSpacing: '0.015vw' },
                 },
                 props.attributes.listItem4
               ),
@@ -262,7 +259,6 @@ wp.blocks.registerBlockType('rezultat2010/textblock-with-image', {
                 'li',
                 {
                   className: 'mark-li-5',
-                  style: { letterSpacing: '0.085vw' },
                 },
                 props.attributes.listItem5
               )
@@ -273,9 +269,8 @@ wp.blocks.registerBlockType('rezultat2010/textblock-with-image', {
             {
               className: 'r-section__images-container_single',
             },
-            wp.element.createElement('img', {
-              src: `${props.attributes.imagePath}`,
-              alt: 'Высокоточная сборка',
+            wp.element.createElement('div', {
+              style: { backgroundImage: `url(${props.attributes.imagePath})` },
             })
           )
         )
@@ -345,8 +340,7 @@ wp.blocks.registerBlockType('rezultat2010/three-images', {
     return wp.element.createElement(
       'section',
       {
-        className: 'r-section',
-        style: { paddingTop: '2.6vw' },
+        className: 'r-section r-pad-top-260',
       },
       wp.element.createElement(
         'div',

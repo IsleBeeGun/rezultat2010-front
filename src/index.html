@@ -24,7 +24,9 @@
     <div class="modal-backdrop"></div>
     <div class="modal-window">
       <span class="modal-exit">&times;</span>
-      <div class="modal-message content"></div>
+      <div class="content">
+        <img class="modal-image" src="" alt="Просмотр изображения" />
+      </div>
     </div>
 
     <!-- Hero -->
@@ -95,7 +97,7 @@
     </section>
 
     <!-- Vozmozhnosti -->
-    <section class="r-section" style="padding-top: 0.45vw">
+    <section class="r-section r-pad-top-045">
       <div class="r-section__container">
         <h2 class="r-section__title">Наши возможности</h2>
         <div class="r-section__line"></div>
@@ -149,10 +151,7 @@
     </section>
 
     <!-- Stoimost -->
-    <section
-      class="r-section r-extra-margin-top-mobile"
-      style="padding-top: 1.5vw"
-    >
+    <section class="r-section r-extra-margin-top-mobile r-pad-top-150">
       <div class="r-section__container">
         <h2 class="r-section__title">Стоимость услуг</h2>
         <div class="r-section__line"></div>
@@ -169,7 +168,7 @@
     </section>
 
     <!-- Shagi -->
-    <section class="r-section" style="padding-top: 2.6vw">
+    <section class="r-section r-pad-top-260">
       <div class="r-section__container">
         <div class="r-section__columns is-centered is-mobile">
           <div class="r-section__step">
@@ -186,8 +185,8 @@
     </section>
 
     <!-- Slider -->
-    <section class="r-section" style="padding-top: 0.8vw">
-      <div class="r-section__container r-fullwidth_moar">
+    <section class="r-section r-pad-top-080">
+      <div class="r-section__container_slider">
         <!-- Slider main container -->
         <div class="swiper-container">
           <!-- Additional required wrapper -->
@@ -200,7 +199,7 @@
               >
                 <div
                   class="r-slide__check"
-                  onclick="openModal(`<img src='x-test1.aade92f8.jpg' />`)"
+                  onclick="openModal('x-test1.aade92f8.jpg')"
                 ></div>
               </div>
             </div>
@@ -211,7 +210,7 @@
               >
                 <div
                   class="r-slide__check"
-                  onclick="openModal(`<img src='x-test2.db46e38d.jpg' />`)"
+                  onclick="openModal('x-test2.db46e38d.jpg')"
                 ></div>
               </div>
             </div>
@@ -219,12 +218,7 @@
               <div
                 class="r-slide"
                 style="background-image: url(./images/x-test3.jpg)"
-              >
-                <div
-                  class="r-slide__check"
-                  onclick="openModal(`<img src='hero-bg.5ec24921.jpg' />`)"
-                ></div>
-              </div>
+              ></div>
             </div>
             <div class="swiper-slide">
               <div
@@ -255,7 +249,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="r-footer" style="padding-top: 5.9vw">
+    <footer class="r-footer r-pad-top-590">
       <div class="r-footer__content">
         <div class="r-footer__line"></div>
         <p class="mt-4">

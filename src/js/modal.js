@@ -16,8 +16,8 @@ window.modalBackdrop.addEventListener('click', (event) => {
   closeModal();
 });
 
-window.openModal = (msg) => {
-  document.querySelector('.modal-message').innerHTML = msg;
+window.openModal = (imgPath) => {
+  document.querySelector('.modal-image').src = imgPath;
   document.querySelector('html').style.overflowY = 'hidden';
   document
     .querySelector('.modal-backdrop')
