@@ -9,6 +9,7 @@ window.swiper = new Swiper('.swiper-container', {
   loop: true,
   grabCursor: true,
   centeredSlides: true,
+  spaceBetween: 1,
   simulateTouch: false,
   // Responsive breakpoints
   breakpoints: {

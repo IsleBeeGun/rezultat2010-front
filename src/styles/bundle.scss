@@ -541,6 +541,10 @@ body {
     padding: 3rem 1.5rem;
   }
 }
+.r-section_slider {
+  @extend .r-section;
+  text-align: center;
+}
 .r-section__container {
   @extend .container;
   @extend .r-fullwidth;
@@ -548,9 +552,9 @@ body {
 }
 .r-section__container_slider {
   @extend .container;
-  width: 73vw;
-  min-width: 73vw;
-  max-width: 73vw !important;
+  width: 69vw;
+  min-width: 69vw;
+  max-width: 69vw !important;
   /* Mobile  */
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
     width: 90vw;
@@ -874,6 +878,7 @@ body {
   /* Mobile  */
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
     height: 66.5vw;
+    width: auto;
     & .r-slide__check {
       margin: 4vw;
       width: 8vw;
@@ -881,9 +886,15 @@ body {
       background-size: 8vw 8vw;
     }
   }
+  /* Tablet */
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    height: 20vw;
+    width: auto;
+  }
   /* XL */
   @media screen and (min-width: $custom-max-laptop+1px) {
     height: 16.5rem;
+    width: auto;
     & .r-slide__check {
       width: 2rem;
       height: 2rem;
@@ -905,6 +916,9 @@ body {
 }
 
 .r-swiper-button {
+  position: relative;
+  display: inline-block;
+  bottom: 9vw;
   &::after {
     content: ' ';
     display: block;
@@ -916,6 +930,7 @@ body {
   }
   /* Mobile  */
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
+    bottom: 34.5vw;
     &::after {
       background-size: 7vw 7vw;
       width: 7vw;
@@ -924,6 +939,7 @@ body {
   }
   /* Tablet */
   @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
+    bottom: 11.5vw;
     &::after {
       background-size: 3vw 3vw;
       width: 3vw;
@@ -932,58 +948,62 @@ body {
   }
   /* XL */
   @media screen and (min-width: $custom-max-laptop+1px) {
-    background-size: 1.5rem 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    top: 54%;
-  }
-  /* XXL */
-  @media screen and (min-width: $custom-max-xl) {
-    top: 46%;
+    bottom: 9rem;
+    &::after {
+      background-size: 1.5rem 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
 .swiper-button-prev {
   @extend .r-swiper-button;
-  left: -2vw;
+  left: -35vw;
   &::after {
     background-image: url(../images/arrow-prev.svg);
   }
   /* Mobile  */
-  @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
-    left: 0.5vw;
-    top: 47.5%;
+  @media screen and (orientation: portrait) and (max-width: 449px) {
+    left: -37%;
+  }
+  @media screen and (orientation: portrait) and (min-width: 450px) and (max-width: $custom-max-mobile) {
+    left: -39%;
   }
   /* Tablet */
-  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
-    left: 0.5vw;
-    top: 45%;
+  @media screen and (min-width: $custom-max-mobile+1px) and (max-width: 699px) {
+    left: -40.5%;
+  }
+  @media screen and (min-width: 700px) and (max-width: $bulma-max-tablet) {
+    left: -42%;
   }
   /* XL */
   @media screen and (min-width: $custom-max-laptop+1px) {
-    left: -2rem;
+    left: -37rem;
+  }
+  /* XXL */
+  @media screen and (min-width: $custom-max-xl) {
+    left: -37.5rem;
   }
 }
 
 .swiper-button-next {
   @extend .r-swiper-button;
-  right: -2vw;
+  right: -35.5vw;
   &::after {
     background-image: url(../images/arrow-next.svg);
   }
   /* Mobile  */
   @media screen and (orientation: portrait) and (max-width: $custom-max-mobile) {
-    right: 0.5vw;
-    top: 47.5%;
+    right: -37.5%;
   }
   /* Tablet */
   @media screen and (min-width: $custom-max-mobile+1px) and (max-width: $bulma-max-tablet) {
-    right: 0.5vw;
-    top: 45%;
+    right: -42%;
   }
   /* XL */
   @media screen and (min-width: $custom-max-laptop+1px) {
-    right: -2rem;
+    right: -37.5rem;
   }
 }
 
