@@ -55,7 +55,7 @@ wp.blocks.registerBlockType('rezultat2010/textblock', {
     return wp.element.createElement(
       'section',
       {
-        className: 'r-section r-extra-margin-top-mobile r-pad-top-150',
+        className: 'r-section r-extra-margin-top-mobile r-pad-top-150'
       },
       wp.element.createElement(
         'div',
@@ -270,7 +270,7 @@ wp.blocks.registerBlockType('rezultat2010/textblock-with-image', {
               className: 'r-section__images-container_single',
             },
             wp.element.createElement('div', {
-              style: { backgroundImage: `url(${props.attributes.imagePath})` },
+              style: {backgroundImage: `url(${props.attributes.imagePath})`}
             })
           )
         )
@@ -340,7 +340,7 @@ wp.blocks.registerBlockType('rezultat2010/three-images', {
     return wp.element.createElement(
       'section',
       {
-        className: 'r-section r-pad-top-260',
+        className: 'r-section r-pad-top-260'
       },
       wp.element.createElement(
         'div',

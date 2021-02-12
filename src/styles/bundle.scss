@@ -57,8 +57,12 @@ $custom-max-xl: 2999px;
 // adjusting font-size for rem
 
 html {
-  font-size: 14px; //14
+  font-size: 14px;
   overflow-x: hidden;
+  /* XL */
+  @media screen and (min-width: $custom-max-laptop) {
+    font-size: 16px;
+  }
   /* XXL */
   @media screen and (min-width: $custom-max-xl) {
     font-size: 18px;
